@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 public class DetailActivity extends AppCompatActivity {
     int poster;
     String judul,budget,tanggal,keterangan,durasi;
+    public static final String Detail = "detail";
 
     TextView txtJudul,txtKeterangan,txtTanggal,txtDurasi,txtBudget;
     ImageView gbrPoster;
@@ -17,12 +19,22 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        poster = getIntent().getIntExtra("poster", 0);
-        judul = getIntent().getStringExtra("judul");
-        budget = getIntent().getStringExtra("budget");
-        tanggal = getIntent().getStringExtra("tanggal");
-        keterangan = getIntent().getStringExtra("keterangan");
-        durasi = getIntent().getStringExtra("durasi");
+
+        Detail detail = getIntent().getParcelableExtra(Detail);
+
+        poster = detail.getPoster();
+        judul = detail.getJudul();
+        budget = detail.getBudget();
+        tanggal = detail.getTanggal();
+        keterangan = detail.getKeterangan();
+        durasi = detail.getDurasi();
+//
+//        poster = getIntent().getIntExtra("poster", 0);
+//        judul = getIntent().getStringExtra("judul");
+//        budget = getIntent().getStringExtra("budget");
+//        tanggal = getIntent().getStringExtra("tanggal");
+//        keterangan = getIntent().getStringExtra("keterangan");
+//        durasi = getIntent().getStringExtra("durasi");
 
         txtJudul = findViewById(R.id.txtDetailJudul);
         txtKeterangan = findViewById(R.id.txtDetailKeterangan);
@@ -39,5 +51,21 @@ public class DetailActivity extends AppCompatActivity {
         txtBudget.setText(budget);
 
 
+        getSupportActionBar().setTitle("Detail Film");
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+
+
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 }

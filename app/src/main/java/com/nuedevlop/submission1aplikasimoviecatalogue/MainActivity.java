@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         prepare();
 
         addItem();
-
+        getSupportActionBar().setTitle("Daftar Film");
 
 
 
@@ -47,15 +47,39 @@ public class MainActivity extends AppCompatActivity {
                 String keterangan = movies.get(position).getKeterangan();
                 String durasi = movies.get(position).getDurasi();
 
-                Intent intent = new Intent(MainActivity.this , DetailActivity.class);
-                intent.putExtra("poster" , poster);
-                intent.putExtra("judul" , judul);
-                intent.putExtra("budget" , budget);
-                intent.putExtra("tanggal" , tanggal);
-                intent.putExtra("keterangan" , keterangan);
-                intent.putExtra("durasi" , durasi);
+//                Intent intent = new Intent(MainActivity.this , DetailActivity.class);
+//                intent.putExtra("poster" , poster);
+//                intent.putExtra("judul" , judul);
+//                intent.putExtra("budget" , budget);
+//                intent.putExtra("tanggal" , tanggal);
+//                intent.putExtra("keterangan" , keterangan);
+//                intent.putExtra("durasi" , durasi);
+//
+//                startActivity(intent);
 
+                Detail detail = new Detail();
+                detail.setBudget(budget);
+                detail.setDurasi(durasi);
+                detail.setJudul(judul);
+                detail.setKeterangan(keterangan);
+                detail.setPoster(poster);
+                detail.setTanggal(tanggal);
+
+                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                intent.putExtra(DetailActivity.Detail,detail);
                 startActivity(intent);
+
+
+//                Person person = new Person();
+//                person.setName("DicodingAcademy");
+//                person.setAge(5);
+//                person.setEmail("academy@dicoding.com");
+//                person.setCity("Bandung");
+//
+//                Intent moveWithObjectIntent = new Intent(MainActivity.this, MoveWithObjectActivity.class);
+//                moveWithObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON, person);
+//                startActivity(moveWithObjectIntent);
+//
 
             }
         });
