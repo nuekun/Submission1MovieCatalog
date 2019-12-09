@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/gbrListMoviePriview"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        app:srcCompat="@drawable/poster_a_star" />
+
+    <TextView
+        android:id="@+id/txtListMovieJudul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/gbrListMoviePriview"
+        android:text="Judul"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtListMovieTgl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gbrListMoviePriview"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="0dp"
+        android:layout_toStartOf="@+id/txtListMovieKet"
+        android:text="tanggal"
+        android:textAlignment="center"
+        android:textColor="#4579CF" />
+
+    <TextView
+        android:id="@+id/txtListMovieKet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtListMovieJudul"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="9dp"
+        android:layout_toEndOf="@+id/gbrListMoviePriview"
+        android:paddingBottom="5dp"
+        android:text="keterangan" />
+</RelativeLayout>
